@@ -46,3 +46,30 @@ svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 @media(max-width:360px){.content{padding-left:12px;padding-right:12px}.metric .num{font-size:24px}.grid-2.compact-mobile{grid-template-columns:1fr}.topbar-title{font-size:16px}}
 @media(min-width:1280px){.content{padding:40px 48px}.grid-4{grid-template-columns:repeat(4,1fr)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+/* MedLearn accessibility + responsive refinement v4 */
+:root{--hero-bg:#0b2530;--hero-text:#fff;--hero-muted:#b9c9cd;--focus:#66c8c2}
+[data-theme="dark"]{--hero-bg:#08171d;--hero-text:#f4fbfb;--hero-muted:#b7c8cc;--focus:#7ed9d3}
+.hero{background:var(--hero-bg);color:var(--hero-text);background-image:linear-gradient(90deg,rgba(8,23,29,.97) 0%,rgba(8,23,29,.84) 57%,rgba(8,23,29,.48) 100%),url("../assets/medical-hero.svg");background-repeat:no-repeat;background-position:center, right center;background-size:auto, min(58%,760px);}
+.hero p{color:var(--hero-muted)}.goal-box{background:rgba(255,255,255,.06)}.goal-ring:after{background:var(--hero-bg)}
+.hero:after{border-color:rgba(126,217,211,.12)}
+.score-ring{position:relative}
+.modal-backdrop[hidden]{display:none!important}
+.skip-link{position:fixed;left:12px;top:12px;transform:translateY(-160%);z-index:200;background:var(--navy);color:var(--surface);padding:10px 14px;border-radius:9px;font-weight:800;text-decoration:none;box-shadow:var(--shadow)}.skip-link:focus{transform:none}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+#mainContent:focus{outline:none}.view-enter{animation:viewIn .38s ease both}@keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card,.hero,.book-card,.nav-item,.btn,.icon-btn,.option,.chapter{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background-color .2s ease}
+.card:hover{transform:translateY(-2px)}.btn:active,.icon-btn:active,.nav-item:active,.option:active,.chapter:active{transform:translateY(1px)}
+.book-card .cover{background-image:linear-gradient(150deg,rgba(22,76,84,.25),rgba(11,37,48,.72)),url("../assets/medical-pattern.svg");background-size:auto,320px}
+.reader-text{background-image:linear-gradient(rgba(255,255,255,.96),rgba(255,255,255,.96)),url("../assets/reader-illustration.svg");background-repeat:no-repeat;background-position:center, right bottom;background-size:auto,380px}
+.reader-dark .reader-text{background-image:linear-gradient(rgba(23,33,38,.96),rgba(23,33,38,.96)),url("../assets/reader-illustration.svg")}
+.setting-help{margin-top:14px;padding:12px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}
+.access-panel{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.access-chip{padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);font-size:13px;font-weight:700}
+body.large-controls .btn,body.large-controls .icon-btn,body.large-controls .switch,body.large-controls .option,body.large-controls .chapter{min-height:48px}body.large-controls .nav-item{min-height:48px}
+body.high-contrast{filter:contrast(1.08)}body.high-contrast .muted,body.high-contrast .metric-label,body.high-contrast .setting-row small{color:color-mix(in srgb,var(--muted) 84%,var(--text))}
+body.no-motion *,body.no-motion *:before,body.no-motion *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+@media(max-width:1100px){
+ .sidebar{display:none}.main{margin-left:0;padding-bottom:78px}.mobile-menu{display:grid}.bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);bottom:0;left:0;right:0;height:70px;background:var(--surface);border-top:1px solid var(--line);z-index:30;padding-bottom:env(safe-area-inset-bottom)}
+ .content{padding:24px 18px}.topbar{height:64px;padding:0 18px}.page-head{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;background-size:auto,470px;background-position:center,right -140px top}.hero .goal-box{display:none}.grid-4,.grid-3,.grid-2,.book-grid{grid-template-columns:repeat(2,1fr)}.test-layout,.result-grid{grid-template-columns:1fr}.reader-layout{grid-template-columns:1fr}.reader-side{position:static}
+}
+@media(max-width:650px){.content{padding:19px 14px}.topbar{height:60px;padding:0 12px}.grid-4,.grid-3,.grid-2,.book-grid,.access-panel{grid-template-columns:1fr}.toolbar{display:grid;grid-template-columns:1fr}.toolbar .search{grid-column:auto}.hero{padding:18px;background-size:auto,390px;background-position:center,right -150px top}.hero h2{font-size:21px}.page-title{font-size:24px}.card{padding:15px}.modal{padding:16px}.notification-btn i{right:8px}.reader-text{padding:20px;background-size:auto,280px}.book-detail{grid-template-columns:100px 1fr}.large-cover{height:150px}.bottom-nav button{font-size:10px}.bottom-nav svg{width:19px}}
+@media(prefers-reduced-motion:reduce){.view-enter,.card:hover{animation:none;transform:none}}
